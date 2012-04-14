@@ -1,7 +1,5 @@
 class LogsController < ApplicationController
-  
-  
- 
+
   # GET /logs
   # GET /logs.xml
   def index

@@ -12,6 +12,7 @@
 //= require jquery.quicksearch
 //= require navigation
 //= require logs
+//= require log_tracking
 //= require raphael-min
 //= require elycharts.min
 //= require tabs

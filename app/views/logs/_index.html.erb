@@ -2,7 +2,6 @@
 
 <div class="list_header_log orange_bgr">
 <div id="form_holder">
-	<%= javascript_include_tag "log_tracking" %>
 <%if !@log.nil?%>
 	<%= render :partial => "stop_tracking", :locals => {:log => @log}%>
 <%else%> 

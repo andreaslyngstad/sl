@@ -1,4 +1,5 @@
 class PrivateController < ApplicationController
+   
       authorize_resource :firm
 
   # skip_before_filter :find_firm, :only => :statistics
@@ -163,7 +164,7 @@ class PrivateController < ApplicationController
 	@project.save
   end
   
-private
+
 
  def timesheet_variables(params)
      @users = current_firm.users
@@ -227,6 +228,7 @@ private
 #   
  end
   def logs_pr_date
+    
     @firm = current_user.firm
     @customers = @firm.customers.includes(:employees)
     @all_projects = current_user.projects.where(["active = ?", true]).includes(:customer, {:todos => [:logs]})
@@ -255,7 +257,9 @@ private
 	    time_range = (Time.now.beginning_of_year - 1.year)..(Time.now.beginning_of_year - 1.second)
 	   
 	    end
-	   find_logs_on(params[:url], time_range)
+	    puts "test"
+	   #find_logs_on(params[:url], time_range)
+	   @logs = "Log.all"
   end
   def log_range
   	@firm = current_user.firm
@@ -266,12 +270,13 @@ private
     else
   		time_range = ((Date.parse(params[:from]).midnight)..Date.parse(params[:to]).midnight + 1.day)
   	end
+  	
    find_logs_on(params[:url], time_range)
+   
   end
   
   def mark_todo_done
     @firm = current_user.firm
-    
     @todo = Todo.find(params[:id])
     @project = @todo.project
     if @todo.completed == true
@@ -281,11 +286,10 @@ private
     end
     @todo.update_attributes(params[:todo])
     @done_todos = @project.todos.where(["completed = ?", true]).includes(:user)
-    @not_done_todos = @project.todos.where(["completed = ?", false]).includes(:user)
-    
+    @not_done_todos = @project.todos.where(["completed = ?", false]).includes(:user) 
     respond_to do |format|
       format.js
-  end
+    end
   end
   
   def membership

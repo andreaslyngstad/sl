@@ -12,13 +12,14 @@ $("table.timesheet_table tbody tr td.number input").focusout(function(){
 	var val_input 	= this.value
 	var project 	= $(this).attr("data-project")
 	var date 		= $(this).attr("data-date")
-	var regexp1 	= /^[0-9,:]+$/  // test denne => /[0-9,:]+(?:\.[0-9]*)?/
-	var regexp2		= /^[:]+$/
+	var regexp1 	= /^[0-9, ,]+$/  // test denne => /[0-9,:]+(?:\.[0-9]*)?/
+	var regexp2		= /^[,]+$/
 	if (regexp1.test(val_input)){
-		alert (val_input + " hours on " + date )
+		// write some save AJAX call
 	}else{
-		this.value = "no"
-	var val_input = this.value
+		alert ("Sorry, you have entered a wrong format. Please use number,number. For example 8,5")
+		
+	
 
 		setTimeout(function(){
 	      

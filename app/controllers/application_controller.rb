@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  
 	include UrlHelper
   before_filter :set_mailer_url_options, :find_firm
 	before_filter :authenticate_user!, :exept => [:after_sign_in_path_for, :sign_in_and_redirect, :check_firm_id, :current_subdomain]

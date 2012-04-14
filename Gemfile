@@ -5,8 +5,8 @@ gem 'rails', '3.2.1'
 gem 'eventmachine'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'rack-ssl'
+gem 'sqlite3', :require => 'sqlite3'
 gem 'jquery-rails'
 gem "devise"
 gem "paperclip"
@@ -20,7 +20,9 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'ruby-debug19'
+ 
+  gem 'quiet_assets'
+  gem 'debugger'
   gem 'minitest'
   gem 'factory_girl'
   gem 'turn'

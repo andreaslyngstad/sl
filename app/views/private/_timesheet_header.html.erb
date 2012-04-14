@@ -6,7 +6,7 @@
    <div class="add_some_timesheet_buttons">
        <a id="dialog_log">Log more hours</a> 
        <%= select_tag :user_id, options_from_collection_for_select(@users, "id", "name"), :class => "small_selector", 
-  		:id => "timeheet_user_select", :data_url => url_splitter(request.fullpath),:include_blank => 'Select User' %>
+  		:id => "timeheet_user_select", :data_url => url_splitter(request.fullpath), :prompt => 'Select User' %>
    </div>
    <div id="dialog_log_form" class="dialog_form" title="Create new log" style="display:none;">
       

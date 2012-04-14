@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
   has_many :users, :through => :memberships
   
 	
-  def active
+  def is_active?
     where(["active = ?", true])
   end
 	
